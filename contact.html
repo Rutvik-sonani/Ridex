@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="style3.css">
+
+    <style>
+      .dropbtn {
+          background-color: black;
+          color: white;
+          padding: 16px;
+          font-size: 16px;
+          border: none;
+      }
+
+      .dropdown {
+          position: relative;
+          display: inline-block;
+      }
+
+      .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #f1f1f1;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          z-index: 1;
+      }
+
+      .dropdown-content a {
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+      }
+
+      .dropdown-content a:hover {
+          background-color: #ddd;
+      }
+
+      .dropdown:hover .dropdown-content {
+          display: block;
+      }
+
+      .dropdown:hover .dropbtn {
+          background-color: black;
+      }
+  </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Ridex</a>
+        <ul class="nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="book.html">Book now</a></li>
+            <li><a href="blog.html">Blogs</a></li>
+            <li><a href="contact.html">Contect Us</a></li>
+            <div class="container">
+                <div id="ls">
+                  <!-- <a href="signup.html"><button class="reg">Sign up</button></a> -->
+                </div>
+            </div>
+        </ul>
+    </header>
+
+    <section>
+        <div class="section-header">
+          <div class="container">
+            <h2>Contact Us</h2>
+            <p>We value your inquiries, feedback, and concerns. Our dedicated customer support team at Ridex is here to provide you with prompt and personalized assistance</p>
+          </div>
+        </div>
+        
+        <div class="container">
+          <div class="row">
+            
+            <div class="contact-info">
+              <div class="contact-info-item">
+                <div class="contact-info-icon">
+                  <i class="fas fa-home"></i>
+                </div>
+                
+                <div class="contact-info-content">
+                  <h4>Address</h4>
+                  <p>4671 Sugar Camp Road,<br/> Owatonna, Minnesota, <br/>55060</p>
+                </div>
+              </div>
+              
+              <div class="contact-info-item">
+                <div class="contact-info-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                
+                <div class="contact-info-content">
+                  <h4>Phone</h4>
+                  <p>111-2794-3736</p>
+                </div>
+              </div>
+              
+              <div class="contact-info-item">
+                <div class="contact-info-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                
+                <div class="contact-info-content">
+                  <h4>Email</h4>
+                 <p>customer@ridex.com</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="contact-form">
+              <form action="" id="contact-form">
+                <h2>Send Message</h2>
+                <div class="input-box">
+                  <input type="text" required="true" name="">
+                  <span>Full Name</span>
+                </div>
+                
+                <div class="input-box">
+                  <input type="email" required="true" name="">
+                  <span>Email</span>
+                </div>
+                
+                <div class="input-box">
+                  <textarea required="true" name=""></textarea>
+                  <span>Type your Message...</span>
+                </div>
+                
+                <div class="input-box">
+                  <input type="submit" value="Send" name="">
+                </div>
+              </form>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+</body>
+
+<script>
+    window.addEventListener('scroll', function () {
+        const header = document.querySelector('header');
+        header.classList.toggle("sticky", window.scrollY > 0);
+    });
+
+    var username = localStorage.getItem("username");
+
+    console.log(username);
+
+    if (username != null) {
+        document.getElementById('ls').innerHTML = `
+        <div class="dropdown">
+  <button class="dropbtn">${username}</button>
+  <div class="dropdown-content">
+    <a href="#" onclick='logout()'>Logout</a>
+  </div>
+</div>
+        `;
+    } else {
+        document.getElementById('ls').innerHTML = '<a href="signup.html"><button class="reg">Sign up</button></a>';
+    }
+
+    function logout(){
+        localStorage.clear();
+        location.reload();
+        // console.log("Logout");
+    }
+
+</script>
+
+</html>

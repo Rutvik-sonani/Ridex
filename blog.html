@@ -1,0 +1,160 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style5.css">
+
+    <style>
+        .dropbtn {
+            background-color: black;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: black;
+        }
+    </style>
+  </head>
+  <body>
+
+    <header>
+        <a href="index.html" class="logo">Ridex</a>
+        <ul class="nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="book.html">Book now</a></li>
+            <li><a href="blog.html">Blogs</a></li>
+            <li><a href="contact.html">Contect Us</a></li>
+            <div class="container">
+                <div id="ls">
+                  <!-- <a href="signup.html"><button class="reg">Sign up</button></a> -->
+                </div>
+            </div>
+        </ul>
+
+
+    </header>
+
+    <section class="header" id="header">
+        <div class="title">
+            <h2>Ridex About Us</h2>
+            <p>Welcome to our world of exceptional car rentals, where your travel aspirations become a reality. Discover the freedom of the open road with our diverse fleet of top-tier vehicles. </p>
+            <!-- <a href="#about" class="btn">ABOUT US</a> -->
+        </div>
+    </section>
+    
+    <div class="container container-flex">
+            <main role="main">
+                
+                <article class="article-featured">
+                    <h2 class="article-title">Finding simplicity in life</h2>
+                    <img src="home.png" alt="simple white desk on a white wall with a plant on the far right side" class="article-image">
+                    <p class="article-info">July 23, 2019 | 3 comments</p>
+                    <p class="article-body">Life can get complicated really quickly, but it doesn't have to be! There are many ways to simplify your life, a few of which we've explored in the past. This week we're taking a bit of a approach though, in how you can find simplicity in the life you already living.</p>
+                    <a href="#" class="article-read-more">CONTINUE READING</a>
+                </article>
+                
+                <article class="article-recent">
+                    <div class="article-recent-main">
+                        <h2 class="article-title">Keeping cooking simple </h2>
+                        <p class="article-body">Food is a very important part of everyone's life. If you want to be healthy, you have to eat healthy. One of the easiest ways to do that is to keep your cooking nice and simple.</p>
+                        <a href="#" class="article-read-more">CONTINUE READING</a>
+                    </div>
+                    <div class="article-recent-secondary">
+                        <img src="home.png" alt="two dumplings on a wood plate with chopsticks" class="article-image">
+                        <p class="article-info">July 19, 2019 | 3 comments</p>
+                    </div>
+                </article>
+                
+                <article class="article-recent">
+                    <div class="article-recent-main">
+                        <h2 class="article-title">Simplicity and work </h2>
+                        <p class="article-body">Work is often a major source of stress. People get frustrated, it ruins their relationship with others and it leads to burnout. By keeping your work life as simple as possible, it will help balance everything out.</p>
+                        <a href="#" class="article-read-more">CONTINUE READING</a>
+                    </div>
+                    <div class="article-recent-secondary">
+                        <img src="home.png" alt="a chair white chair at a white desk on a white wall" class="article-image">
+                        <p class="article-info">July 12, 2019 | 3 comments</p>
+                    </div>
+                </article>
+                
+                <article class="article-recent">
+                    <div class="article-recent-main">
+                        <h2 class="article-title">Simple decorations</h2>
+                        <p class="article-body">A home isn't a home until you've decorated a little. People either don't decorate, or they go overboard and it doesn't have the impact they were hoping for. Staying simple will help draw the eye where you want it to and make things pop like never before.</p>
+                        <a href="#" class="article-read-more">CONTINUE READING</a>
+                    </div>
+                    <div class="article-recent-secondary">
+                        <img src="home.png" alt="a green plant in a clear, round vase with water in it" class="article-image">
+                        <p class="article-info">July 3, 2019 | 3 comments</p>
+                    </div>
+                </article>
+            </main>
+        </div>
+    
+  </body>
+
+  <script>
+    window.addEventListener('scroll', function () {
+        const header = document.querySelector('header');
+        header.classList.toggle("sticky", window.scrollY > 0);
+    });
+
+    var username = localStorage.getItem("username");
+
+    console.log(username);
+
+    if (username != null) {
+        document.getElementById('ls').innerHTML = `
+        <div class="dropdown">
+  <button class="dropbtn">${username}</button>
+  <div class="dropdown-content">
+    <a href="#" onclick='logout()'>Logout</a>
+  </div>
+</div>
+        `;
+    } else {
+        document.getElementById('ls').innerHTML = '<a href="signup.html"><button class="reg">Sign up</button></a>';
+    }
+
+    function logout(){
+        localStorage.clear();
+        location.reload();
+        // console.log("Logout");
+    }
+
+</script>
+
+</html>
